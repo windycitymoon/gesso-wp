@@ -16,6 +16,13 @@ module.exports = function (grunt) {
         files: ['<%= pkg.themePath %>/images/bg/*.svg'],
         tasks: ['gessoBuildImages', 'gessoBuildStyles'],
       },
+      twig: {
+        files : [ '<%= pkg.themePath %>/**/*.{twig,php}' ],
+        tasks : [ 'gessoBuildStyles' ],
+        options: {
+          livereload: true
+        }
+      }
     }
   });
 
