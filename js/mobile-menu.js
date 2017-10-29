@@ -42,8 +42,8 @@ jQuery( document ).ready(function( $ ) {
 
     // insert search button and clone/append search bar, if it exists.
     if (!($('.mobile-menu .mobile-menu__search').length > 0)) {
-      if ($('.block--search').length > 0) {
-        $('.block--search').clone().addClass('mobile-menu__search').appendTo($mobileNav);
+      if ($('.search').length > 0) {
+        $('.search').clone().addClass('mobile-menu__search').appendTo($mobileNav);
         $mobileBar.append('<button class="mobile-menu__button js-mobile-search-button mobile-menu__button--search"><span class="mobile-menu__icon mobile-menu__icon--search">Search</span></button>');
       }
     }
