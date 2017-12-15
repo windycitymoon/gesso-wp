@@ -4,31 +4,15 @@ module.exports = function (grunt) {
       gesso: {
         files : [ '<%= pkg.themePath %>/sass/**/*.scss' ],
         tasks : [ 'gessoBuildStyles' ],
-        // options: {
-        //   livereload: true
-        // }
       },
       patternlab: {
-        files: ['pattern-lab/source/**/*'], // IMPORTANT, You cannot use a package.json variable in this area. Must be configured to use direct path to patternlab instance. Otherwise, new PL patterns will not load without restarting grunt.
+        files: ['pattern-lab/source/**/*'], 
         tasks: ['shell:patternlab'],
-        // options: {
-        //   livereload: true
-        // }
       },
       svgs: {
         files : [ '<%= pkg.themePath %>/images/bg/*.svg' ],
         tasks : [ 'gessoBuildImages','gessoBuildStyles' ],
-        // options: {
-        //   livereload: true
-        // }
       }
-      // twig: {
-      //   files : [ '<%= pkg.themePath %>/**/*.{twig,php}' ],
-      //   // tasks : [ 'gessoBuildStyles' ],
-      //   // options: {
-      //   //   livereload: true
-      //   // }
-      // }
     }
   });
 
