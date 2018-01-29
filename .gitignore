@@ -8,6 +8,6 @@ css/*.map
 # -----------------------------------------------------------------
 # DIVI Page Builder files, uncomment these to pull into repo
 # -----------------------------------------------------------------
-page-divi.php
-templates/base-divi.twig
-templates/page-divi.twig
+# page-divi.php
+# templates/base-divi.twig
+# templates/page-divi.twig
