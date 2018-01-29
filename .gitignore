@@ -4,3 +4,10 @@ node_modules
 sass/partials/sass-globbing/
 css/*.css
 css/*.map
+
+# -----------------------------------------------------------------
+# DIVI Page Builder files, uncomment these to pull into repo
+# -----------------------------------------------------------------
+page-divi.php
+templates/base-divi.twig
+templates/page-divi.twig
