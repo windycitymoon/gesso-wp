@@ -295,6 +295,7 @@ class StarterSite extends TimberSite {
     $context['menu'] = new TimberMenu();
     $context['current_year'] = date('Y');
     $context['site'] = $this;
+    $context['options'] = get_fields('options');
     return $context;
   }
 
@@ -330,3 +331,43 @@ function gesso_bem_gallery( $gallery, $attr ) {
   return $output;
 }
 add_filter( 'post_gallery', 'gesso_bem_gallery', 10, 2 );
+
+/*
+* Set default timezone for date functions
+*/
+// date_default_timezone_set('America/Los_Angeles');
+
+/*
+* FacetWP fix, for Timber based themes. 
+* Makes add a argument for setting primary page query 
+*/
+// function my_facetwp_is_main_query( $is_main_query, $query ) {
+//     if ( isset( $query->query_vars['facetwp'] ) ) {
+//         $is_main_query = true;
+//     }
+//     return $is_main_query;
+// }
+// add_filter( 'facetwp_is_main_query', 'my_facetwp_is_main_query', 10, 2 );
+
+/* 
+* ACF Configuration items
+*/
+
+// Add Global Options Page
+// if( function_exists('acf_add_options_page') ) {
+
+// 	acf_add_options_page( array(
+// 		'page_title' 	=> 'Global Fields',
+// 		'menu_title'	=> 'Global Fields',
+// 		'menu_slug' 	=> 'global-fields',
+// 		'capability'	=> 'edit_posts',
+// 		'redirect'		=> false
+// 	) );
+
+// }
+
+// Register Google Maps
+// function my_acf_init() {
+// 	acf_update_setting('google_api_key', 'AIzaSyDrxLctf1Vf25isWLUdVJn7ULPbPJz3P5M');
+// }
+// add_action('acf/init', 'my_acf_init');
