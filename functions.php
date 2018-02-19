@@ -339,7 +339,7 @@ add_filter( 'post_gallery', 'gesso_bem_gallery', 10, 2 );
 
 /*
 * FacetWP fix, for Timber based themes. 
-* Makes add a argument for setting primary page query 
+* Adds an query argument for setting primary page query 
 */
 // function my_facetwp_is_main_query( $is_main_query, $query ) {
 //     if ( isset( $query->query_vars['facetwp'] ) ) {
