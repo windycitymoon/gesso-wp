@@ -368,6 +368,6 @@ add_filter( 'post_gallery', 'gesso_bem_gallery', 10, 2 );
 
 // Register Google Maps
 // function my_acf_init() {
-// 	acf_update_setting('google_api_key', 'AIzaSyDrxLctf1Vf25isWLUdVJn7ULPbPJz3P5M');
+// 	acf_update_setting('google_api_key', '[GET API KEY FROM GGOLE MAPS]');
 // }
 // add_action('acf/init', 'my_acf_init');
