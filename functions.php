@@ -295,7 +295,7 @@ class StarterSite extends TimberSite {
     $context['menu'] = new TimberMenu();
     $context['current_year'] = date('Y');
     $context['site'] = $this;
-    $context['options'] = get_fields('options');
+    // $context['options'] = get_fields('options');
     return $context;
   }
 
@@ -338,8 +338,8 @@ add_filter( 'post_gallery', 'gesso_bem_gallery', 10, 2 );
 // date_default_timezone_set('America/Los_Angeles');
 
 /*
-* FacetWP fix, for Timber based themes. 
-* Adds an query argument for setting primary page query 
+* FacetWP fix, for Timber based themes.
+* Adds an query argument for setting primary page query
 */
 // function my_facetwp_is_main_query( $is_main_query, $query ) {
 //     if ( isset( $query->query_vars['facetwp'] ) ) {
@@ -349,7 +349,7 @@ add_filter( 'post_gallery', 'gesso_bem_gallery', 10, 2 );
 // }
 // add_filter( 'facetwp_is_main_query', 'my_facetwp_is_main_query', 10, 2 );
 
-/* 
+/*
 * ACF Configuration items
 */
 
