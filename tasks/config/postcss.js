@@ -10,7 +10,11 @@ module.exports = function (grunt) {
         processors: [
           require('postcss-assets')(),
           require('autoprefixer')({
-            browsers: '> 1%, last 3 versions',
+            browsers: [
+              '> 1%',
+              'last 5 versions',
+              'ie >= 11',
+            ],
             remove: false // Don't remove outdated prefixes (there shouldn't be any, and this saves compile time)
           }),
         ]

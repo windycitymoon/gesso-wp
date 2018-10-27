@@ -1,13 +1,7 @@
 .DS_Store
 node_modules
 .sass-cache
-sass/partials/sass-globbing/
-css/*.css
-css/*.map
-
-# -----------------------------------------------------------------
-# DIVI Page Builder files
-# -----------------------------------------------------------------
-# page-divi.php
-# templates/base-divi.twig
-# templates/page-divi.twig
+pattern-lab/source/sass-globbing/
+#css/*.css
+#css/*.map
+package-lock.json

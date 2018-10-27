@@ -5,7 +5,7 @@
 
 module.exports = function(grunt) {
     var paths = {
-        localDev: "http://localhost:8080", // Set this to your site's localhost
+        localDev: "http://wordpresscustomstarter.lndo.site/", // Set this to your site's localhost
         js: ['<%= pkg.themePath %>/js/**/*.js'],
         html: ['<%= pkg.themePath %>/**/*.{html,php}', '<%= pkg.themePath %>/pattern-lab/source/**/*.json'],
         twig: ['<%= pkg.themePath %>/**/*.twig'],

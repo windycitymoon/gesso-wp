@@ -1,21 +1,20 @@
 <?php
 
 /*------------------------------------------------------------------*
- * Useful functions to speed up development.
+ * Useful functions to speed up development. 
  * DRY principle: https://en.wikipedia.org/wiki/Don't_repeat_yourself
 /*------------------------------------------------------------------*/
 
 /**
  * Adds a post_type_label filter for twig
- * @param object $twig
- * @return object
+ * @param Twig_Environment $twig
+ * @return Twig_Environment
  */
-function gesso__add_post_type_label_filter( $twig ) {
-	$twig->addExtension( new Twig_Extension_StringLoader() );
-	$twig->addFilter( new Twig_SimpleFilter( 'post_type_label', 'gesso__get_post_type_label' ) );
+function f1__add_post_type_label_filter( \Twig_Environment $twig ) {
+	$twig->addFilter( new \Twig_SimpleFilter( 'post_type_label', 'f1__get_post_type_label' ) );
 	return $twig;
 }
-add_filter( 'timber/twig', 'gesso__add_post_type_label_filter' );
+add_filter( 'timber/twig', 'f1__add_post_type_label_filter' );
 
 
 /**
@@ -23,10 +22,10 @@ add_filter( 'timber/twig', 'gesso__add_post_type_label_filter' );
  * @param array $collection
  * @return array/null
  */
-function gesso__get_posts( $collection = null ) {
+function f1__get_posts( $collection = null ) {
 	if ( !is_array( $collection ) )
 		return null;
-
+	
 	$result = Timber::get_posts(
 		array(
 			'post_type'   => 'any',
@@ -47,7 +46,7 @@ function gesso__get_posts( $collection = null ) {
  * @param int $exclude
  * @return array
  */
-function gesso__get_posts_by_tax( $post_type = 'post', $taxonomy = null, $terms = null, $qty = null, $exclude = null ) {
+function f1__get_posts_by_tax( $post_type = 'post', $taxonomy = null, $terms = null, $qty = null, $exclude = null ) {
 	if ( !is_array( $terms ) )
 		return null;
 	$result = Timber::get_posts(
@@ -73,7 +72,7 @@ function gesso__get_posts_by_tax( $post_type = 'post', $taxonomy = null, $terms 
  * @param string $post_type
  * @return array
  */
-function gesso__get_posts_with_pagination( $post_type = 'post' ) {
+function f1__get_posts_with_pagination( $post_type = 'post' ) {
 	global $paged;
 	if ( !isset( $paged ) || !$paged ) {
 		$paged = 1;
@@ -91,7 +90,7 @@ function gesso__get_posts_with_pagination( $post_type = 'post' ) {
  * @param int $id
  * @return array/null
  */
-function gesso__get_image( $id ) {
+function f1__get_image( $id ) {
 	if ( strlen( $id ) ) {
 		return new TimberImage( $id );
 	} else {
@@ -106,7 +105,7 @@ function gesso__get_image( $id ) {
  * @param int $qty
  * @return array
  */
-function gesso__get_posts_block( $post_type, $qty ) {
+function f1__get_posts_block( $post_type, $qty ) {
 	return Timber::get_posts(
 		array(
 			'post_type' => $post_type,
@@ -121,7 +120,7 @@ function gesso__get_posts_block( $post_type, $qty ) {
  * @param int $id
  * @return array
  */
-function gesso__get_sidebar( $id ) {
+function f1__get_sidebar( $id ) {
 	return Timber::get_widgets( $id );
 }
 
@@ -131,9 +130,9 @@ function gesso__get_sidebar( $id ) {
  * @param string $post_type
  * @return string
  */
-function gesso__get_post_type_label( $post_type ) {
+function f1__get_post_type_label( $post_type ) {
 	$obj = get_post_type_object( $post_type );
-	return apply_filters( 'gesso/get_post_type_label' , $obj->labels->singular_name, $obj );
+	return apply_filters( 'f1/get_post_type_label' , $obj->labels->singular_name, $obj );
 }
 
 
@@ -142,10 +141,10 @@ function gesso__get_post_type_label( $post_type ) {
  * @param object $posts
  * @return object
  */
-function gesso__add_post_type_labels( $posts ) {
+function f1__add_post_type_labels( $posts ) {
 	// Add a post type label to each post.
 	for( $i = 0, $size = count( $posts ); $i < $size; ++$i ) {
-		$posts[$i]->post_type_label = gesso__get_post_type_label( $posts[$i]->post_type );
+		$posts[$i]->post_type_label = f1__get_post_type_label( $posts[$i]->post_type );
 	}
 	return $posts;
 }
@@ -156,6 +155,7 @@ function gesso__add_post_type_labels( $posts ) {
  * @param int|string|WP_Term $menu
  * @return object
  */
-function gesso__get_menu( $menu ) {
+function f1__get_menu( $menu ) {
 	return TimberHelper::function_wrapper( 'wp_nav_menu', array( 'menu' => $menu ) );
 }
+
