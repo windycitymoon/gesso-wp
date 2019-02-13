@@ -51,7 +51,7 @@ function has_visible_widgets( $sidebar_id ) {
 function gesso_header_scripts() {
 
   wp_deregister_script('jquery');
-  wp_register_script('jquery', 'http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js', array() ); // Google CDN jQuery
+  wp_register_script('jquery', '//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js', array() ); // Google CDN jQuery
   wp_enqueue_script('jquery');
 
   wp_register_script('gessomodernizr', get_template_directory_uri() . '/js/lib/modernizr.min.js', array('jquery') ); // Modernizr
@@ -180,7 +180,7 @@ class StarterSite extends TimberSite {
     add_theme_support( 'post-formats' );
     add_theme_support( 'post-thumbnails' );
     add_theme_support( 'menus' );
-    add_filter( 'timber_context', array( $this, 'add_to_context' ) );
+    add_filter( 'timber/context', array( $this, 'add_to_context' ) );
     add_filter( 'timber/twig', array( $this, 'add_to_twig' ) );
     parent::__construct();
   }
@@ -226,8 +226,12 @@ function gesso_bem_gallery( $gallery, $attr ) {
   foreach ( $posts as $image_post ) {
     $src      = wp_get_attachment_image_src( $image_post->ID, $size );
     $alt_text = get_post_meta( $image_post->ID, '_wp_attachment_image_alt', true );
-    $output .= '<div class="gallery__item"><a href="' . $src[0] . '"><img alt="' . $alt_text . '" class="gallery__item-image" src="' . $src[0] . '"></a>';
-    $output .= '<div class="galler__item-caption">' . $image_post->post_excerpt . '</div></div>';
+    $output .= '<div class="gallery__item">';
+    $output .= '<a href="' . $src[0] . '"><img alt="' . $alt_text . '" class="gallery__item-image" src="' . $src[0] . '"></a>';
+    $output .= '<div class="gallery__item-title">' . $image_post->post_title . '</div>';
+    $output .= '<div class="gallery__item-caption">' . $image_post->post_excerpt . '</div>';
+    $output .= '<div class="gallery__item-description">' . $image_post->post_content . '</div>';
+    $output .= '</div>';
   }
 
   $output .= '</div>';
@@ -236,6 +240,11 @@ function gesso_bem_gallery( $gallery, $attr ) {
 }
 add_filter( 'post_gallery', 'gesso_bem_gallery', 10, 2 );
 
+/**
+ * Register Twig namespaces to Pattern Lab patterns. 
+ * @param Twig_Loader_Filesystem $loader
+ * @return Twig_Loader_Filesystem
+ */
 add_filter('timber/loader/loader', function($loader){
 	$loader->addPath(__DIR__ . "/pattern-lab/source/_patterns/01-base", "base");
 	$loader->addPath(__DIR__ . "/pattern-lab/source/_patterns/02-layouts", "layouts");
