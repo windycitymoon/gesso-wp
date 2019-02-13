@@ -98,6 +98,7 @@ browser CSS property prefixes during Sass compilation.
 
 ## Maintainers
 
-The Gesso theme for WordPress is maintained by [Corey Lafferty](https://github.com/coreylafferty), [Lindsey DiNapoli](https://github.com/cssgirl), [Karen Kitchens](https://github.com/karenkitchens) and [Elvis Morales](https://github.com/elvismdev).
+The Gesso theme for WordPress is maintained by [Corey Lafferty](https://github.com/coreylafferty), [Lindsey DiNapoli](https://github.com/cssgirl), [Karen Kitchens](https://github.com/karenkitchens),
+some random folks and [Elvis Morales](https://github.com/elvismdev).
 
 Please use the Github issue queue: https://github.com/forumone/gesso-wp/issues
