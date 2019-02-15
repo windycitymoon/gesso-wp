@@ -2,9 +2,10 @@ module.exports = function (grunt) {
   grunt.config.merge({
     chokidar: {
       gesso: {
-        files: ['<%= pkg.themePath %>/pattern-lab/source/**/*.scss','<%= pkg.themePath %>/pattern-lab/source/_patterns/**/*.scss'],
+        files: ['<%= pkg.themePath %>/pattern-lab/source/**/*.scss','<%= pkg.themePath %>/pattern-lab/source/_patterns/**/*.scss','<%= pkg.themePath %>/**/*.{twig,js,php}'],
         tasks: ['gessoBuildStyles'],
         options: {
+          livereload: true,
           usePolling: true
         }
       },
